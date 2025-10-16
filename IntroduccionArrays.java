@@ -46,7 +46,9 @@ public class IntroduccionArrays {
         temperaturas[6] = 20;
 
         // 3. Llama a la función mostrarTemperaturas
-        for (int i = 0; i < temperaturas.length; i++) {
+        for (int i = 0; i < temperaturas.length; i++)
+        // for (int i = 0; i < temperaturas.length; i=i+2) - Cojo solo pares
+        {
             System.out.println(temperaturas[i]);
         }
 
