@@ -58,13 +58,13 @@ public class ResultadosAtleti {
         int suma = 0;
         for (Partido partido : temporada) {
             suma += partido.getGolesMarcados();
-
         }
         // TODO:
         // 1. Inicializa una variable suma a 0.
         // 2. Recorre el array con un for-each y suma getGolesMarcados().
         // 3. Devuelve suma / temporada.length (como double).
 
+        // ¿Tú sabes usar esto ? o lo ha hecho chatGPT o similar
         return temporada.length > 0 ? (double) suma / temporada.length : 0.0;
     }
 
@@ -109,10 +109,8 @@ public class ResultadosAtleti {
         Partido peor = temporada[0];
         // Con esto resolvemos el 2
         for (int i = 1; i < temporada.length; i++) {
-            ;
-
             // Con esto resolvemos el 3
-            if (temporada[i].getGolesMarcados() > peor.getGolesMarcados()) {
+            if (temporada[i].getGolesMarcados() < peor.getGolesMarcados()) {
                 peor = temporada[i];
             }
         }
@@ -137,9 +135,14 @@ public class ResultadosAtleti {
      * Suma total de goles marcados en la temporada.
      */
     public static int totalGolesMarcados(Partido[] temporada) {
+
         // TODO (opcional):
         // 1. Acumula getGolesMarcados() en un int y devuelve.
-        return 0;
+        int totalGolesMarcados = 0;
+        for (int i = 0; i < temporada.length; i++) {
+            totalGolesMarcados += temporada[i].getGolesMarcados();
+        }
+        return totalGolesMarcados;
     }
 
     /**
@@ -148,7 +151,11 @@ public class ResultadosAtleti {
     public static int totalGolesRecibidos(Partido[] temporada) {
         // TODO (opcional):
         // 1. Acumula getGolesRecibidos() en un int y devuelve.
-        return 0;
+        int totalGolesRecibidos = 0;
+        for (int i = 0; i < temporada.length; i++) {
+            totalGolesRecibidos += temporada[i].getGolesRecibidos();
+        }
+        return totalGolesRecibidos;
     }
 
     // ---------------------------------------------------------------------
@@ -171,20 +178,20 @@ public class ResultadosAtleti {
         };
 
         // 2️⃣ Llama a los métodos y muestra resultados
-        // double media = mediaGolesMarcados(temporada);
-        // Partido mas = partidoMasGolesMarcados(temporada);
-        // Partido menos = partidoMenosGolesMarcados(temporada);
+        double media = mediaGolesMarcados(temporada);
+        Partido mas = partidoMasGolesMarcados(temporada);
+        Partido menos = partidoMenosGolesMarcados(temporada);
         //
         // // Extras:
-        // int marcados = totalGolesMarcados(temporada);
-        // int recibidos = totalGolesRecibidos(temporada);
+        int marcados = totalGolesMarcados(temporada);
+        int recibidos = totalGolesRecibidos(temporada);
 
         // 3️⃣ Muestra por pantalla (quita los comentarios al implementar)
-        // System.out.printf("Media de goles marcados: %.2f%n", media);
-        // System.out.printf("Partido con MÁS goles marcados: %s%n", mas);
-        // System.out.printf("Partido con MENOS goles marcados: %s%n", menos);
-        // System.out.printf("TOTAL goles marcados: %d | TOTAL goles recibidos: %d%n",
-        // marcados, recibidos);
-        double suma = mediaGolesMarcados(temporada);
+        System.out.printf("Media de goles marcados: %.2f%n", media);
+        System.out.printf("Partido con MÁS goles marcados: %s%n", mas);
+        System.out.printf("Partido con MENOS goles marcados: %s%n", menos);
+        System.out.printf("TOTAL goles marcados: %d | TOTAL goles recibidos: %d%n",
+        marcados, recibidos);
+        
     }
 }
