@@ -75,17 +75,27 @@ public class ResultadosAtleti {
      * @return partido con el máximo de goles a favor
      */
     public static Partido partidoMasGolesMarcados(Partido[] temporada) {
+        // Con esto resolvemos el 1
         Partido mejor = temporada[0];
-        for (int i = 1; i < temporada.length; i++)
+
+        // Con esto resolvemos el 2
+        for (int i = 0; i < temporada.length; i++) {
             ;
 
+            // Con esto resolvemos el 3
+            if (temporada[i].getGolesMarcados() > mejor.getGolesMarcados()) {
+                mejor = temporada[i];
+            }
+        }
         // TODO:
         // 1. Crea una variable Partido mejor = temporada[0];
         // 2. Recorre el array desde el índice 1.
         // 3. Si temporada[i].getGolesMarcados() > mejor.getGolesMarcados(), actualiza
         // mejor.
         // 4. Devuelve mejor.
-        return null;
+
+        // Con esto resolvemos el 4
+        return mejor;
     }
 
     /**
@@ -95,13 +105,28 @@ public class ResultadosAtleti {
      * @return partido con el mínimo de goles a favor
      */
     public static Partido partidoMenosGolesMarcados(Partido[] temporada) {
+        // Con esto resolvemos el 1
+        Partido peor = temporada[0];
+        // Con esto resolvemos el 2
+        for (int i = 1; i < temporada.length; i++) {
+            ;
+
+            // Con esto resolvemos el 3
+            if (temporada[i].getGolesMarcados() > peor.getGolesMarcados()) {
+                peor = temporada[i];
+            }
+        }
+
+        // 3
         // TODO:
         // 1. Crea una variable Partido peor = temporada[0];
         // 2. Recorre el array desde el índice 1.
         // 3. Si temporada[i].getGolesMarcados() < peor.getGolesMarcados(), actualiza
         // peor.
         // 4. Devuelve peor.
-        return null;
+
+        // Con esto resolvemos el 4
+        return peor;
     }
 
     // ---------------------------------------------------------------------
